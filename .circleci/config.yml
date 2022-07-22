@@ -9,8 +9,12 @@ jobs:
     steps:
       - checkout
       - run:
-          name: "Say hello"
-          command: "echo Hello, World!"
+          name: "Update a variable"
+          command: "sed -n 's/\{parallelism\}/4/gi' .circleci/configtwo.yml"
+      - run:
+          name: "Echo the new config update."
+          command: "cat .circleci/configtwo.yml"
+      
 
 workflows:
   say-hello-workflow:

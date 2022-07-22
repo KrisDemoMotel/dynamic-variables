@@ -1,6 +1,10 @@
 version: 2.1
 
 setup: true
+
+orbs:
+  continuation: circleci/continuation@0.3.1
+
 jobs:
   say-hello:
     docker:
@@ -9,13 +13,10 @@ jobs:
     steps:
       - checkout
       - run:
-          name: "Update a variable"
-          command: "sed 's/{parallelismVal}/4/gi' .circleci/configtwo.yml > .circleci/newConfig.yml"
-      - run:
-          name: "Echo the new config update."
-          command: "cat .circleci/newConfig.yml"
-      
-
+          name: "Update a variable - parallelism,  in this case."
+          command: "sed 's/{parallelismVal}/4/gi' .circleci/configtwo.yml > .circleci/configtwo.yml"
+      - continuation/continue:
+          configuration_path: .circleci/configtwo.yml
 workflows:
   say-hello-workflow:
     jobs:

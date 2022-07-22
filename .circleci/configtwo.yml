@@ -3,7 +3,7 @@ version: 2.1
 setup: true
 jobs:
   say-hello:
-    parallelism: {parallelism}
+    parallelism: parallelismVal
     docker:
       - image: cimg/base:stable
     resource_class: small

@@ -1,0 +1,19 @@
+version: 2.1
+
+setup: true
+jobs:
+  say-hello:
+    parallelism: {parallelism}
+    docker:
+      - image: cimg/base:stable
+    resource_class: small
+    steps:
+      - checkout
+      - run:
+          name: "Hello, but with parallelism!"
+          command: "echo Hello, World!"
+
+workflows:
+  multi-greet:
+    jobs:
+      - say-hello

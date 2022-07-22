@@ -1,5 +1,5 @@
 # dynamic-variables
-An example of how to dynamically update variables using Dynamic Configuration.
+An example of how to dynamically update variables using Dynamic Configuration!
 
 ## How it works
 

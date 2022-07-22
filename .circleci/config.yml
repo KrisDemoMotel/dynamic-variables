@@ -10,10 +10,10 @@ jobs:
       - checkout
       - run:
           name: "Update a variable"
-          command: "sed 's/parallelismVal/4/gi' .circleci/configtwo.yml"
+          command: "sed 's/parallelismVal/4/gi' .circleci/configtwo.yml > .circleci/newConfig.yml"
       - run:
           name: "Echo the new config update."
-          command: "cat .circleci/configtwo.yml"
+          command: "cat .circleci/newConfig.yml"
       
 
 workflows:

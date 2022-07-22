@@ -14,11 +14,11 @@ jobs:
       - checkout
       - run:
           name: "Update a variable - parallelism,  in this case."
-          command: "sed 's/{parallelismVal}/4/gi' .circleci/configtwo.yml > .circleci/configtwo.yml"
+          command: "sed 's/{parallelismVal}/4/gi' .circleci/configtwo.yml > .circleci/newConfig.yml"
       - run:
-          command: "cat .circleci/configtwo.yml"
+          command: "cat .circleci/newConfig.yml"
       - continuation/continue:
-          configuration_path: .circleci/configtwo.yml
+          configuration_path: .circleci/newConfig.yml
 workflows:
   say-hello-workflow:
     jobs:
